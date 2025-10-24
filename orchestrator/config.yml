@@ -1,0 +1,22 @@
+model: "openai/gpt-4o-mini"
+marketplace_servers:
+  brave: "tsion/brave-search-mcp"
+  twitter: "REPLACE_WITH_TWITTER_MCP"
+  reddit: "REPLACE_WITH_REDDIT_MCP"
+  google_news: "REPLACE_WITH_GOOGLE_NEWS_MCP"
+  youtube: "REPLACE_WITH_YOUTUBE_MCP"
+  linkedin: "REPLACE_WITH_LINKEDIN_MCP"
+routing:
+  political: [twitter, reddit, google_news, linkedin]
+  crypto: [twitter, reddit, brave]
+  tech: [linkedin, google_news, reddit, youtube]
+  default: [brave, google_news]
+aggregation:
+  weights:
+    twitter: 0.25
+    reddit: 0.2
+    google_news: 0.2
+    youtube: 0.15
+    linkedin: 0.2
+    brave: 0.15
+  clamp_confidence: [0.3, 0.95]
