@@ -11,11 +11,12 @@ async def main():
     runner = DedalusRunner(client)
 
     result = runner.run(
-        input="Find the year GPT-5 released, and handoff to Claude to write a haiku about Elon Musk. Output this haiku.",
+        input="serach the web for what elon musk said lately tell me if u used the tools",
         model=["gpt-5", "claude-sonnet-4-20250514"],
+        mcp_servers=["windsor/brave-search-mcp"],
         stream=True
     )
-
+ 
     await stream_async(result)
 
 if __name__ == "__main__":
